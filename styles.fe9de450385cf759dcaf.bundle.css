@@ -4,7 +4,7 @@
   @include object-fit(contain);
   or object-fit and object-position:
   @include object-fit(cover, top);
-*/.btn{background-color:#c92a33;color:#fff;padding:10px 20px;-webkit-transition:.5s;transition:.5s}.btn:focus,.btn:hover{color:#c92a33;background-color:#fff;border:1px solid #c92a33;outline:none;cursor:pointer}
+*/.btn{background-color:#c92a33;color:#fff;padding:10px 20px;outline:none;-webkit-transition:.5s;transition:.5s}.btn:hover{color:#c92a33;background-color:#fff;border:1px solid #c92a33;cursor:pointer}
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
