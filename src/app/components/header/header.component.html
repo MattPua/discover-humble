@@ -1,0 +1,16 @@
+<header class="is-flex has-flex-align-center has-flex-justify-between">
+  <img class="logo" src="https://mattpua.github.io/discover-humble/assets/discoverHumble-logo.svg" alt="Discover Humble" height="30" width="180"/>
+  <div class="links">
+    <span class="menu-mobile" (click)="showLinksMobile = !showLinksMobile">
+      <i class="fa fa-bars" aria-hidden="true" [class.hidden]="showLinksMobile"></i>
+      <i class="far fa-window-close" [class.hidden]="!showLinksMobile"></i>
+    </span>
+    <ul class="menu-list" [class.show-links-mobile]="showLinksMobile">
+      <li class="link" (click)="showAboutModal.emit()"><a>About</a></li>
+      <li class="divider">|</li>
+      <li class="link" (click)="showCreditsModal.emit()"><a>Credits</a></li>
+      <li class="divider">|</li>
+      <li class="link" (click)="showContactModal.emit()"><a>Contact</a></li>
+    </ul>
+  </div>
+</header>

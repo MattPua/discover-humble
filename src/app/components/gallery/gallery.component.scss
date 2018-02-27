@@ -1,0 +1,27 @@
+@import './../../../master';
+@media (min-width: $mobileBp) {
+  .item-wrapper {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .gallery {
+    margin: 0 15%;
+    transition: 0.3s;
+  }
+}
+
+.item-wrapper hd-item-card {
+  width: 50%;
+}
+
+@media (max-width: $mobileBp) {
+  .item-wrapper hd-item-card {
+    width: 100%;
+  }
+}
+
+.count {
+  color: $primary-red;
+}

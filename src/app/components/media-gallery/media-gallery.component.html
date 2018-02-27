@@ -1,0 +1,30 @@
+<section class="media-gallery">
+  <div class="is-flex media-container has-pos-rel" hdSwiper (onSwipe)="swipeCarousel($event)" [stopPropagation]="true" [stopDefault]="false">
+    <div class="flex-one is-flex has-flex-justify-center has-flex-align-center" style="width: 100%; min-height: 200px;">
+      <ng-container *ngFor="let item of media; let i = index;">
+        <img *ngIf="item.type === 'image'" [src]="item.url" class="media" [class.active]="i === currentSlideIndex"/>
+        <video *ngIf="item.type === 'video'" controls [poster]="item.posterUrl" class="media" [class.active]="i === currentSlideIndex">
+          <source [src]="item.url" type="video/webm">
+          Your browser does not support the video tag.
+        </video>
+      </ng-container>
+      <ng-container *ngIf="!media || !media.length">
+        <img src="https://mattpua.github.io/discover-humble/assets/no_image_placeholder.jpg" class="active media" alt="Media Placeholder">
+      </ng-container>
+    </div>
+  </div>
+  <footer class="bottom has-flex-align-center has-flex-justify-center is-flex">
+    <div class="slide-indicator has-flex-align-center has-flex-justify-center is-flex" *ngIf="media && media.length">
+      <div class="prev control is-flex has-flex-align-center no-select" (click)="prevSlide($event)">
+        <i class="fas fa-chevron-left"></i>
+        <span class="sr-only">Previous</span>
+      </div>
+      <span>{{currentSlideIndex + 1}} of {{ media.length }}</span>
+      <div class="next control is-flex has-flex-align-center no-select" (click)="nextSlide($event)">
+        <i class="fas fa-chevron-right"></i>
+        <span class="sr-only">Next</span>
+      </div>
+    </div>
+    <ng-content></ng-content>
+  </footer>
+</section>

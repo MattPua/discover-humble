@@ -1,0 +1,43 @@
+@import './../../../master';
+.media {
+  display: none;
+
+  &.active {
+    display: initial;
+    width: auto;
+    height: auto;
+    max-height: 300px;
+    @include object-fit(fill);
+  }
+  overflow: hidden;
+}
+
+.prev, .next {
+  cursor: pointer;
+}
+
+footer.bottom {
+  margin: 10px 0;
+
+}
+
+.slide-indicator {
+  background-color: white;;
+  color: $primary-red;
+  border: 1px solid $primary-red;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    background-color: $primary-red;
+    color: white;
+    .prev, .next {
+      color: white;
+    }
+  }
+  transition: 0.5s;
+  .prev, .next {
+    color: $primary-red;
+    padding: 10px;
+    transition: 0.5s;
+  }
+}

@@ -1,0 +1,123 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'master';
+@import 'normalize';
+
+*, input, select, button {
+  font-family: 'Oxygen', Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 14px;
+  line-height: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+// Flex Layouts
+
+.is-flex {
+  display: flex;
+}
+
+.is-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.has-flex-justify-center {
+  justify-content: center;
+}
+.has-flex-justify-start {
+  justify-content: flex-start;
+}
+
+.has-flex-justify-between {
+  justify-content: space-between;
+}
+
+.has-flex-justify-around {
+  justify-content: space-around;
+}
+
+.has-flex-align-center {
+  align-items: center;
+}
+.has-flex-align-end {
+  align-items: flex-end;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+// Positioning
+.has-pos-abs {
+  position: absolute;
+}
+
+.has-pos-rel {
+  position: relative;
+}
+
+
+// Removes the blue highlighting when you click on an element
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+// Modify scrollbar colours
+*::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear,
+                    left bottom,
+                    left top,
+                    color-stop(0.44, $black),
+                    color-stop(0.86, $primary-red));
+}
+
+// Font Awesome
+
+.fas:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,18 @@
+@import './../master';
+
+@media (min-width: $mobileBp) {
+  main.expanded {
+    ::ng-deep .gallery {
+      width: 65%;
+      margin-left: 2%;
+    }
+  }
+}
+main {
+  position: relative;
+  top: 67px;
+}
+
+ul {
+  margin-left: 30px;
+}

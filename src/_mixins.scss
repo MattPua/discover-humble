@@ -1,0 +1,64 @@
+@mixin border-radius($top-left, $top-right: null, $bottom-right: null, $bottom-left: null) {
+  @if ($top-right) {
+    -webkit-border-top-left-radius: $top-left;
+    -webkit-border-top-right-radius: $top-right;
+    -webkit-border-bottom-left-radius: $bottom-left;
+    -webkit-border-bottom-right-radius: $bottom-right;
+
+    -moz-border-top-left-radius: $top-left;
+    -moz-border-top-right-radius: $top-right;
+    -moz-border-bottom-left-radius: $bottom-left;
+    -moz-border-bottom-right-radius: $bottom-right;
+
+    border-top-left-radius: $top-left;
+    border-top-right-radius:  $top-right;
+    border-bottom-left-radius: $bottom-left;
+    border-bottom-right-radius: $bottom-right;
+  } @else {
+    -webkit-border-radius: $top-left;
+    -moz-border-radius: $top-left;
+    border-radius: $top-left;
+  }
+}
+
+@mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $spread $color;
+    -moz-box-shadow:inset $top $left $blur $spread $color;
+    box-shadow:inset $top $left $blur $spread $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $spread $color;
+    -moz-box-shadow: $top $left $blur $spread $color;
+    box-shadow: $top $left $blur $spread $color;
+  }
+}
+
+
+@mixin calc-height($a, $b) {
+  /* Firefox */
+  height: unqoute("-moz-calc(#{$a} - #{$b})");
+  /* WebKit */
+  height: unqoute("-webkit-calc(#{$a} - #{$b})");
+  /* Opera */
+  height: unquote("-o-calc(#{$a} - #{$b})");
+  /* Standard */
+  height: unquote("calc(#{$a} - #{$b})")
+}
+
+/*
+  This mixin can be used to set the object-fit:
+  @include object-fit(contain);
+  or object-fit and object-position:
+  @include object-fit(cover, top);
+*/
+@mixin object-fit($fit: fill, $position: null){
+  -o-object-fit: $fit;
+     object-fit: $fit;
+  @if $position {
+	  -o-object-position: $position;
+	     object-position: $position;
+  	font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+  } @else {
+  	font-family: 'object-fit: #{$fit}';
+  }
+}

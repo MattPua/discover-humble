@@ -1,0 +1,59 @@
+@import './../../../master';
+
+.modal {
+  @include box-shadow(-2px, 3px, 6px, null, rgba(0,0,0, 0.16));
+  @include border-radius(10px);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  background-color: #fff;
+  margin: 0 auto;
+  top: 25%;
+
+  @media (max-width: $mobileBp) {
+    width: 90%;
+    left: 5%;
+    top: 5%;
+  }
+
+  width: 40%;
+  left: 30%;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    background-color: $secondary-red;
+    color: white;
+    @include border-radius(10px, 10px, 0 ,0);
+
+    .close-ic {
+      position: absolute;
+      right: 10px;
+      font-size: 2rem;
+      top: 5px;
+      transition: 0.5s;
+      &:hover {
+        transform: rotate(90deg);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .content {
+    padding: 10px;
+    line-height: 25px;
+  }
+
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $primary-red;
+  z-index: 99;
+  transition: 1s;
+}

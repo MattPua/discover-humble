@@ -1,0 +1,93 @@
+@import './../../../master';
+
+.item {
+  padding: 10px;
+  margin: 20px 10px;
+  @include box-shadow(0, 3px, 6px, null, rgba(0,0,0, 0.16));
+  @include border-radius(8px);
+  border: 1px solid rgba(112, 112, 112, 0.1411764705882353);
+  background-color: #FAFAFA;
+  color: #575757;
+  b {
+    color: #C92A32;
+  }
+  p {
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  position: relative;
+  &:hover, &.active{
+    background-color: $primary-red;
+    .content, b {
+      color: white;
+    }
+    .icon {
+      border-color: $primary-red;
+    }
+  }
+  @media (min-width: $mobileBp){
+    min-height: 100px;
+    max-height: 100px;
+  }
+}
+
+.icon {
+  min-height: 70px;
+  max-height: 70px;
+  min-width: 70px;
+  max-width: 70px;
+  @include border-radius(50%);
+  border: 1px solid rgba(112, 112, 112, 0.1411764705882353);
+  background-color: white;
+  margin: 10px;
+}
+
+.item-category, .recommendation {
+  position: absolute;
+  top: -15px;
+  @include border-radius(50%);
+  border: 1px solid rgba(112, 112, 112, 0.1411764705882353);
+  height: 42px;
+  width: 42px;
+  background-color: white;
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.playing-time, .recommendation {
+  position: absolute;
+}
+
+.item-category {
+  right: -10px;
+}
+.recommendation {
+  right: 35px;
+}
+
+.playing-time {
+  height: 17px;
+  img {
+    height: 15px;
+    width: 15px;
+    margin-right: 4px;
+  }
+  @include border-radius(50px, 0, 0, 50px);
+  border: 1px solid rgba(112, 112, 112, 0.1411764705882353);
+  top: -12px;
+  right: 66px;
+  background-color: white;
+  padding: 3px 14px 3px 5px;
+}
+
+.content {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+:host ::ng-deep .quote {
+  font-style: italic;
+}

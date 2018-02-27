@@ -1,0 +1,32 @@
+<section class="expanded-item" [class.active]="isActive">
+  <ng-container *ngIf="isActive">
+    <div class="top is-flex has-flex-align-center has-flex-justify-between" #elemRef>
+      <h2 class="title">{{item.humbleBundle.human_name}}</h2>
+      <i class="fas fa-chevron-circle-left back" (click)="deselectItem.emit()"></i>
+    </div>
+    <hd-media-gallery [media]="item.media"></hd-media-gallery>
+    <div class="content">
+      <div class="about">
+        <h4>Developed by: {{ item.developer }}</h4>
+        <div class="description" *ngIf="item.description">
+          <div class="summary" [innerHtml]="item.description | keepHtml"></div>
+        </div>
+      </div>
+      <div class="ratings" *ngIf="(data && data.length) || (item.criticReviews)">
+        <h4>What do the critics say?</h4>
+        <hd-bar-graph *ngIf="data && data.length" [data]="data"></hd-bar-graph>
+        <div class="critic-reviews" *ngIf="item.criticReviews" [innerHtml]="item.criticReviews | keepHtml"></div>
+      </div>
+      <div class="reviews" *ngIf="item.hasReviews">
+        <h4>What do Steam Users say?</h4>
+        <hd-review *ngFor="let review of reviewsToShow" [review]="review"></hd-review>
+        <div class="text-center">
+          <button class="btn" *ngIf="reviewsToShow.length < allReviews.length" (click)="reviewsToShow = getReviewsToShow(true)">
+            {{ reviewsToShow.length === 0 ? 'See All Reviews' : 'Read more Reviews'}}
+          </button>
+          <button class="btn" *ngIf="reviewsToShow.length === allReviews.length" (click)="reviewsToShow = getReviewsToShow(false)">Hide Reviews</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</section>

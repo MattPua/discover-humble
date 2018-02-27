@@ -1,0 +1,16 @@
+<ng-container *ngFor="let dataset of data">
+  <div class="graph is-flex has-flex-align-end has-flex-justify-between">
+    <div class="left has-pos-rel" style="flex: 1;">
+      <b>{{dataset.name}}</b>
+      <div class="bar"
+      [class.red]="dataset.value <= 60"
+      [class.yellow]="dataset.value >60 && dataset.value <= 79"
+      [class.green]="dataset.value > 79"
+      [style.width]="dataset.value + '%'"></div>
+      <div class="background-bar has-pos-abs"></div>
+    </div>
+    <div class="right">
+      <b class="value">{{dataset.value}}</b><sup>/100</sup>
+    </div>
+  </div>
+</ng-container>

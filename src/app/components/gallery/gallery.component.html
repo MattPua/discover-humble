@@ -1,0 +1,14 @@
+<section class="gallery">
+  <div class="info is-flex-column has-flex-justify-center has-flex-align-center">
+    <h3>Discover <span class="count">{{items.length}}</span> items from your Humble Library!</h3>
+    <h4 style="margin-top: 0;">or</h4>
+    <button class="btn" (click)="reloadItems.emit()">
+      Discover Something New <i class="fas fa-sync" ></i>
+    </button>
+    <br/>
+    <p>Click a card to see more</p>
+  </div>
+  <div class="item-wrapper is-flex-column has-flex-align-center">
+    <hd-item-card *ngFor="let item of items" [item]="item" (selectItem)="selectItem.emit($event)" [isSelectedItem]="item === selectedItem"></hd-item-card>
+  </div>
+</section>

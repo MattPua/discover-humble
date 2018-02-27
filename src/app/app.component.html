@@ -1,0 +1,87 @@
+<hd-header [items]="itemsToShow" (showAboutModal)="showAboutModal = !showAboutModal" (showCreditsModal)="showCreditsModal = !showCreditsModal" (showContactModal)="showContactModal = !showContactModal"></hd-header>
+<main [class.expanded]="selectedItem">
+  <hd-gallery [items]="itemsToShow" (reloadItems)="showRandomGames()" (selectItem)="selectedItem = $event;" [selectedItem]="selectedItem"></hd-gallery>
+  <hd-expanded-item [isActive]="selectedItem" [item]="selectedItem" (deselectItem)="deselectItem()"></hd-expanded-item>
+</main>
+
+<hd-modal *ngIf="showAboutModal" title="About" (closeModal)="showAboutModal = !showAboutModal">
+  <p>
+    <b>DiscoverHumble</b> is my second timed product challenge of 2018. <b>The Goal:</b> redesign the HumbleBundle Library experience in 36 hours.
+  </p>
+  <br/>
+  <p>
+    DiscoverHumble came about due to a problem I was having with having <b>too many</b> games in my HumbleBundle library. With so many games, it was difficult to figure out which game I wanted to play next.
+  </p>
+  <br/>
+  <p>DiscoverHumble is a way for people to re-discover their games on <a href="https://humblebundle.com" target="_blank">HumbleBundle</a> in a different way.</p>
+  <br/>
+  <p>Let me know your thoughts <a href="https://goo.gl/forms/JV4HZK2gO0KqvKmY2" target="_blank"><b>here</b></a>.</p>
+  <br/>
+  <hr/>
+  <p><b>Note:</b> The items you currently see are items that are found in my library. Want to set up this up with your own HumbleBundle? Check out the instructions <a href="https://github.com/MattPua/discover-humble" target="_blank"><b>here</b></a>.</p>
+  <br/>
+  <b>This project has no official affiliation with HumbleBundle or any other platform/service used.</b>
+  <br/>
+</hd-modal>
+<hd-modal *ngIf="showCreditsModal" title="Credits" (closeModal)="showCreditsModal = !showCreditsModal">
+  <p style="text-align: center">
+    This project greatly benefitted from the work from the following places and people:
+  </p>
+  <br/>
+  <ul class="credits">
+    <li>
+      <a href="https://www.flaticon.com/authors/freepik" target="_blank">Smart Phone Icon: <b>Freepik</b></a>
+    </li>
+    <li>
+      <a href="https://www.flaticon.com/authors/smashicons" target="_blank">Game Controller Icon: <b>Smashicons</b></a>
+    </li>
+    <li>
+      <a href="https://www.flaticon.com/authors/smashicons" target="_blank">Stopwatch Icon: <b>Smashicons</b></a>
+    </li>
+    <li>
+      <a href="https://www.flaticon.com/authors/freepik" target="_blank">E-reader icon: <b>Freepik</b></a>
+    </li>
+    <li>
+      <a href="https://www.flaticon.com/authors/smashicons">Music Icon: <b>Smashicons</b></a>
+    </li>
+    <li>
+      <a href="https://www.flaticon.com/authors/those-icons">Thumbs up & Thumbs Down Icon: <b>Those Icons</b></a>
+    </li>
+    <li>
+      <a href="http://fontawesome.io/" target="_blank">FontAwesome for great Icons: <b>Dave Gandy</b></a>
+    </li>
+    <li>
+      <a href="https://github.com/daneden/animate.css" target="_blank">Animations via Animate.css: <b>DaneDen</b></a>
+    </li>
+    <li>
+      <a href="https://humblebundle.com" target="_blank">A Gaming Treasure where the games are from: <b>HumbleBundle</b></a>
+    </li>
+    <li>
+      <a href="https://igdb.com" target="_blank">For Game Data, Photos, and Videos: <b>IGDB</b></a>
+    </li>
+    <li>
+      <a href="https://http://store.steampowered.com/" target="_blank">For Game Data, Photos, Videos and User Reviews: <b>Steam</b></a>
+    </li>
+    <li>
+      <a href="https://github.com/MestreLion/humblebundle" target="_blank">Providing the API to get the Humble Bundle Library data: <b>MestreLion</b></a>
+    </li>
+  </ul>
+</hd-modal>
+<hd-modal *ngIf="showContactModal" title="Contact" (closeModal)="!showContactModal = !showContactModal">
+  <p>Like what you see? Feel free to give me a shout or even buy me a coffee!</p>
+  <br/>
+  <div class="is-flex has-flex-align-center has-flex-justify-around" style="flex-wrap: wrap;">
+    <a class="btn" target="_blank" href="mailto:matthewpua@gmail.com" style="margin-bottom: 10px;">
+      Email
+      <i class="far fa-envelope"></i>
+    </a>
+    <a class="btn" href="https://github.com/MattPua/discover-humble" target="_blank" style="margin-bottom: 10px;">
+      Source
+      <i class="fab fa-github"></i>
+    </a>
+    <a class="btn" href='https://ko-fi.com/X8X19SAB' target="_blank" style="margin-bottom: 10px;">
+      <img src="https://ko-fi.com/img/cuplogo.svg" class="kofiimg" style="height: 13px!important;width: 20px!important;">
+      Buy me a Coffee!
+    </a>
+  </div>
+</hd-modal>

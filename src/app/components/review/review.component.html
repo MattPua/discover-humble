@@ -1,0 +1,15 @@
+<div class="review is-flex has-flex-align-center">
+  <div class="content is-flex-column has-flex-justify-center">
+    <b>{{ reviewDate }} ({{calendarReviewDate}})</b>
+    <div [innerHtml]="review.review | keepHtml"></div>
+  </div>
+  <div class="steam-review">
+    <div class="is-flex has-flex-align-center has-flex-justify-center playing-time">
+      <img src="https://mattpua.github.io/discover-humble/assets/icons/stopwatch.svg"/>
+      <span>{{ review.author.playtime_forever }} Hours</span>
+    </div>
+    <div class="is-flex has-flex-align-center has-flex-justify-center recommendation">
+      <img [src]="review.voted_up ? 'https://mattpua.github.io/discover-humble/assets/icons/like.svg' : 'https://mattpua.github.io/discover-humble/assets/icons/dislike.svg'" [class.liked]="review.voted_up" [class.disliked]="!review.voted_up"/>
+    </div>
+  </div>
+</div>

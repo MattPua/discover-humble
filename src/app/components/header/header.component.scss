@@ -1,0 +1,75 @@
+@import './../../../master';
+header {
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+header {
+  background-color: $black;
+  color: white;
+}
+
+.logo {
+  margin: 0 auto;
+}
+
+.links {
+  position: absolute;
+  right: 0;
+  margin-right: 40px;
+
+  .link {
+    padding: 5px;
+  }
+  .link:focus,
+  .link:hover {
+    color: $primary-red;
+    cursor: pointer;
+  }
+
+  ul {list-style: none;}
+  .menu-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: $mobileBp) {
+      &:not(.show-links-mobile) {
+        display: none;
+      }
+      left: 0;
+      right: 0;
+      position: fixed;
+      top: $headerHeight;
+      bottom: initial;
+      background-color: $black;
+      li {
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+      }
+      .link {flex: 1}
+      .divider {flex: 0;}
+    }
+  }
+  .menu-mobile {
+    @media(min-width: $mobileBp) {
+      display: none;
+    }
+    &:focus,
+    &:hover {
+      color: $primary-red;
+      cursor: pointer;
+      transition: 0.5s;
+      font-size: 200%;
+    }
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+  }
+}

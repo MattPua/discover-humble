@@ -1,0 +1,19 @@
+<div class="item is-flex has-flex-align-center" (click)="onClick()" [class.active]="isSelectedItem">
+  <div class="item-category is-flex has-flex-align-center has-flex-justify-center" *ngIf="itemCategory && itemCategory.length > 0">
+    <img [src]="itemCategory" />
+  </div>
+  <img [src]="randomIcon" onError="this.src='https://mattpua.github.io/discover-humble/assets/icons/random.png'" class="icon"/>
+  <div class="content is-flex-column has-flex-justify-center">
+    <b>{{item.humbleBundle.human_name}}</b>
+    <div [innerHtml]="randomDescriptionContent | keepHtml"></div>
+  </div>
+  <div class="steam-review" *ngIf="steamReview && isShowingSteamReviewText">
+    <div class="is-flex has-flex-align-center has-flex-justify-center playing-time">
+      <img src="https://mattpua.github.io/discover-humble/assets/icons/stopwatch.svg"/>
+      <span>{{ steamReview.author.playtime_forever }} Hours</span>
+    </div>
+    <div class="is-flex has-flex-align-center has-flex-justify-center recommendation">
+      <img [src]="steamReview.voted_up ? 'https://mattpua.github.io/discover-humble/assets/icons/like.svg' : 'https://mattpua.github.io/discover-humble/assets/icons/dislike.svg'" [class.liked]="steamReview.voted_up" [class.disliked]="!steamReview.voted_up"/>
+    </div>
+  </div>
+</div>

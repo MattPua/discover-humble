@@ -1,0 +1,71 @@
+@import './../../../master';
+
+.top {
+  background-color: $primary-red;
+  color: white;
+  padding: 20px 10px;
+  .title, .back{
+    margin: 0 10px;
+    font-size: 24px;
+  }
+}
+
+.content {
+  padding: 10px;
+}
+
+.ratings ::ng-deep a{
+  font-weight: bold;
+}
+
+.critic-reviews {
+  margin-top: 20px;
+}
+
+.expanded-item {
+  background-color: white;
+  @include box-shadow(-6px, -1px, 7px, null, rgba(0,0,0, 0.16));
+  position: fixed;
+  &.active {
+    right: 0;
+  }
+  width: 30vw;
+  top: $headerHeight;
+  overflow-y: scroll;
+  @include calc-height(100%, $headerHeight);
+  @media (max-width: $mobileBp) {
+    &.active {
+      // left: 0;
+      width: 100%;
+    }
+  }
+  transition: right 0.3s;
+  right: -100vw;
+
+}
+.content {
+  padding: 20px;
+}
+
+
+.summary {
+  white-space: pre-line;
+
+  ::ng-deep {
+    img {
+      max-width: 100%;
+    }
+    a {
+      color: $primary-red;
+    }
+    ul {
+      margin-left: 30px;
+    }
+  }
+}
+
+.about, .ratings, .reviews {
+  border-top: 1px solid rgba(128, 128, 128, 0.28);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
